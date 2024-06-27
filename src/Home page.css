@@ -1,0 +1,88 @@
+.App-main {
+  padding: 20px;
+}
+
+.genre-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.genre-buttons button {
+  padding: 5px 10px; /* Reduced padding for smaller button size */
+  font-size: 14px;   /* Reduced font size for smaller button */
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.genre-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.drama-section {
+  margin-top: 20px;
+}
+
+.drama-section h2 {
+  margin-bottom: 20px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.list-item img {
+  margin-right: 20px;
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.list-item div {
+  flex-grow: 1;
+}
+
+.list-item h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.list-item p {
+  margin: 10px 0;
+}
+
+.list-item button {
+  padding: 5px 10px; /* Reduced padding for smaller button size */
+  font-size: 14px;   /* Reduced font size for smaller button */
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.list-item button:hover {
+  background-color: #218838;
+}
+
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;  /* Reduced padding for smaller button size */
+  font-size: 14px;    /* Reduced font size for smaller button */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px; /* Added for consistency with other buttons */
+}
+
+.button:hover {
+  background-color: #039e5a; /* Slightly darker green for hover effect */
+}

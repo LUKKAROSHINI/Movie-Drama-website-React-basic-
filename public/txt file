@@ -1,0 +1,50 @@
+{
+  "kdramas": [
+    {
+      "id": 1,
+      "title": "Crash Landing on You",
+      "description": "A South Korean heiress lands in North Korea.",
+      "imageUrl": "images/kdramas/1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Itaewon Class",
+      "description": "An ex-con and his friends fight to make their street bar a success.",
+      "imageUrl": "images/kdramas/2.jpg"
+    }
+  ],
+  "cdramas": [
+    {
+      "id": 1,
+      "title": "The Untamed",
+      "description": "Two soulmates revive a fateful alliance.",
+      "imageUrl": "images/cdramas/1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Love and Destiny",
+      "description": "A god falls for a young woman destined for him.",
+      "imageUrl": "images/cdramas/2.jpg"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Parasite",
+      "description": "A poor family schemes to become employed by a wealthy family.",
+      "imageUrl": "images/movies/1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Train to Busan",
+      "description": "A man tries to save his daughter during a zombie outbreak on a train.",
+      "imageUrl": "images/movies/2.jpg"
+    }
+  ]
+}
+
+
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTRiYTRlOTgyMTg5ZmE4YmZjOTllNGY3NDc1NTllMCIsInN1YiI6IjY2NWQ5OGQ0N2I3MDBkMmE0YjZkMGY5MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8InxgKJIhX4OTLksca1mss0dnPKnsEVw_Xklw9TJqDQ
+
+
+https://www.themoviedb.org/settings/api

@@ -1,38 +1,245 @@
+/* General Styles */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f0e6d2;
+  color: #333;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header Styles */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #c09a6b;
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.App-header p {
+  font-style: italic;
+  margin: 5px 0 20px;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.heart-icon-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-icon-link .watchlist-icon {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  transition: fill 0.3s;
+}
+
+.heart-icon-link .watchlist-icon.filled {
+  fill: red;
+}
+
+.login-button, .register-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover, .register-button:hover {
+  background-color: #0056b3;
+}
+
+/* Genre Buttons */
+.genre-buttons {
+  margin: 20px 0;
+}
+
+.genre-buttons button {
+  background-color: #8c7b75;
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 2px 5px; /* Further reduced padding */
+  margin: 2px; /* Reduced margin */
+  cursor: pointer;
+  font-size: 0.7rem; /* Further reduced font size */
+  transition: background-color 0.3s;
+}
+
+.genre-buttons button:hover {
+  background-color: #6e5a51;
+}
+
+/* Drama Section */
+.drama-section {
+  padding: 20px;
+}
+
+.drama-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.list-item img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.list-item div {
+  text-align: left;
+}
+
+.list-item h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.list-item p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.list-item button {
+  background-color: #8c7b75;
+  color: white;
+  border: none;
+  padding: 2px 5px; /* Further reduced padding */
+  cursor: pointer;
+  font-size: 0.7rem; /* Further reduced font size */
+  transition: background-color 0.3s;
+}
+
+.list-item button:hover {
+  background-color: #6e5a51;
+}
+
+
+/* Watch List Section */
+.watch-list-section {
+  padding: 20px;
+}
+
+.watch-list-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.watch-list-section li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.watch-list-section img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.watch-list-section div {
+  text-align: left;
+}
+
+.watch-list-section h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.watch-list-section p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.watch-list-section button {
+  background-color: #8c7b75;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.watch-list-section button:hover {
+  background-color: #6e5a51;
+}
+
+/* Footer Styles */
+.App-footer {
+  background-color: #c09a6b;
+  padding: 10px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Register Styles */
+.register-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.register-container label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.register-container input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-container button {
+  padding: 10px;
+  background-color: #28a745;
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.register-container button:hover {
+  background-color: #218838;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

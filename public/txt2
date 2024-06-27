@@ -1,0 +1,44 @@
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const PORT = 8000;
+
+app.use(cors());
+
+const kdramas = [
+  { id: 1, title: 'Crash Landing on You', description: 'A South Korean heiress and a North Korean officer fall in love after an accident causes her to land in his territory.', imageUrl: 'https://th.bing.com/th/id/OIP.acHUiF8FZDxJzolaaZIY1gHaLH?w=115&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7' },
+  { id: 2, title: 'Goblin', description: 'A goblin cursed with immortality meets a young woman who can end his life and their fate becomes intertwined.', imageUrl: 'https://th.bing.com/th?id=ODL.5f068c7d82c716b2225e01c4e85611d8&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+  { id: 3, title: 'Itaewon Class', description: 'An ex-con and his friends fight to make their ambitious dreams for their street bar a reality.', imageUrl: 'https://th.bing.com/th?id=ODL.f73db7518b853833bfa1844c121ba48b&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+  { id: 4, title: 'Vincenzo', description: 'A Korean-Italian lawyer and Mafia consigliere returns to Korea to enact his own brand of justice.', imageUrl: 'https://th.bing.com/th?id=ODL.996404e2aeecac57d539f1c25a0c1803&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+];
+
+const cdramas = [
+  { id: 1, title: 'The Untamed', description: 'Two talented disciples of respectable magical clans unit during a tragic incident.', imageUrl: 'https://th.bing.com/th?id=ODL.a5ee986e389ab85b3fd739da9e0ba2b6&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+  { id: 2, title: 'Eternal Love', description: 'A love story between an immortal goddess and a prince.', imageUrl: 'https://th.bing.com/th?id=ODL.48338b627de58507343f6229943aba27&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+  { id: 3, title: 'Love and Destiny', description: 'A love story between a deity and a young woman.', imageUrl: 'https://th.bing.com/th?id=ODL.d32fbdfde483fb62f6beab702ad2fbaa&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+  { id: 4, title: 'Go Ahead', description: 'Three troubled youths find solace in their common experiences to become the best family that they can be for each other.', imageUrl: 'https://th.bing.com/th?id=ODL.818e65e05e4b0f2eb49dadb92a3e693b&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+];
+
+const movies = [
+  { id: 1, title: 'Inception', description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.', imageUrl: 'https://th.bing.com/th?id=ODL.278411ebe959b0a31556e6d50a0ca08c&w=135&h=201&c=10&rs=1&qlt=90&o=6&dpr=1.3&pid=13.1' },
+  { id: 2, title: 'The Dark Knight', description: 'Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', imageUrl: 'https://www.bing.com/ck/a?!&&p=e195a20321d99b6eJmltdHM9MTcxNzM3MjgwMCZpZ3VpZD0xNDlkNzUxZC05YzE0LTY5YmQtMzkwYi02MTQ1OWRiOTY4NGEmaW5zaWQ9NTYyMQ&ptn=3&ver=2&hsh=3&fclid=149d751d-9c14-69bd-390b-61459db9684a&psq=the+dark+knight&u=a1aHR0cHM6Ly93d3cuaW1kYi5jb20vdGl0bGUvdHQwNDY4NTY5Lw&ntb=1' },
+  { id: 3, title: 'Interstellar', description: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.', imageUrl: 'https://th.bing.com/th?id=OSK.9fe956e61845d30f420a62f37e5e9a44&w=46&h=46&c=11&rs=1&qlt=80&o=6&dpr=1.3&pid=SANGAM' },
+  { id: 4, title: 'The Matrix', description: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', imageUrl: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7///8BEBAQEBEQEhQUEhkbGBsZJSIfHyIlOCgrKCsoOFU1PjU1PjVVS1tKRUpbS4dqXl5qh5yDfIOcvampve7i7v/////CABEIAC4ALgMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAADBAUCBgAB/9oACAEBAAAAAFzAHhPrgyqopqm5BOk1z+Jny8aTpD1DLM5X1Vb/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMABP/aAAoCAhADEAAAALcwfKTOjBljZ0//xAAsEAACAQQCAQICCwAAAAAAAAABAgMABBESITFBBVFhgRATFCIjJUJScYKR/9oACAEBAAE/AEtmYrqOx5p7WXXGBU8JgQmYCPXk7VGBKCY2VgDz2CKkgJ7UfKkgUTTeeqWSKKaGJ1JMikj5VfzR20BmMmmGXU+SanuWlsTPK7DSRDC7Y2fBq0IuUlnaXeRiu2cZUAfdHFXCaRyGMKXOB5OMnvAq1UzTXG2ODjIGoNCeRle5LsZAhUEdqCexTTRXsyGdmVYgCR4AHJxU0xmLySyEt0AT0PYVb+o3MKSGNsP++pZ44lW4lYKXClQeO+a9MNpcpIIsGVWO+OgCTgCrOF5FEqt+FtqcnrPip8aS/Fzn3wMnitGMe2DgHmo1d21Tsgn/AAZqO8/LYGyu8cgCjPtXpUoWe6nlkEakhc4wCai1OQeGzn5+9S6LZtsx+taXGvwA5osVQLyM9/HyKgkMU0Ug/S4NXNm9vE2wBh+04U55Ip52KIm2VTOv9uagiYSBjgrirsASAD22P8sfpnYNCU55VHGafhjgYFf/xAAeEQACAQMFAAAAAAAAAAAAAAAAAQISISIQETFBYf/aAAgBAgEBPwCrwqurDOmzck8STx04P//EAB0RAAICAQUAAAAAAAAAAAAAAAABAiESAxAREzH/2gAIAQMBAT8Ajp0da4ZjR40jEirZG57K0f/Z' },
+];
+
+app.get('/kdramas', (req, res) => {
+  res.json(kdramas);
+});
+
+app.get('/cdramas', (req, res) => {
+  res.json(cdramas);
+});
+
+app.get('/movies', (req, res) => {
+  res.json(movies);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
